@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="GeVER Project Page">
-  <meta property="og:title" content="GeVER: General Vision Expert Transformer for Robot Learning via Foundation Distillation and Dynamic Routing"/>
+  <meta name="description" content="VER Project Page">
+  <meta property="og:title" content="VER: Vision Expert Transformer for Robot Learning via Foundation Distillation and Dynamic Routing"/>
   <meta property="og:description" content="MoE for VFMs"/>
   <meta property="og:url" content="anonymous"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
@@ -14,7 +14,7 @@
   <meta property="og:image:height" content="630"/>
 
 
-  <meta name="twitter:title" content="GeVER: General Vision Expert Transformer for Robot Learning via Foundation Distillation and Dynamic Routing">
+  <meta name="twitter:title" content="VER: Vision Expert Transformer for Robot Learning via Foundation Distillation and Dynamic Routing">
   <meta name="twitter:description" content="MoE for VFMs">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
   <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>GeVER: General Vision Expert Transformer for Robot Learning via Foundation Distillation and Dynamic Routing</title>
+  <title>VER: Vision Expert Transformer for Robot Learning via Foundation Distillation and Dynamic Routing</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -112,8 +112,8 @@
               <!-- Paper authors -->
                 <span class="author-block">
                 <a href="" target="_blank">Anonymous Authors</a>
-                <br>
-                <span class="submission-status">In Submission to ICCV 2025</span>
+                <!-- <br>
+                <span class="submission-status">In Submission</span> -->
               </div>
 
               <!-- <div class="is-size-5 publication-authors">
@@ -310,14 +310,18 @@
       <p>
         Our framework consists of two main components: a <i>Base Vision Transformer</i> (BVT) that generates unified feature representations from input images, and a <i>Vision Expert Library</i> (VEL) comprising specialized experts that capture diverse visual representations from various vision foundation models.
       </p>
+
       <div style="height: 30px;"></div> 
+
       <p>
         Training consists of <b>two phases</b> that enables efficient knowledge distillation from diverse vision foundation models and adaptive feature selection for specific robotic tasks: 
       </p>
       <p>
         (1) Pretraining, where a Base Vision Transformer processes input images, and Teacher-Specific Routers in the Vision Expert Library select appropriate experts to mimic representations from foundation models; 
       </p>
+
       <div style="height: 30px;"></div> 
+
       <h2 class="subtitle has-text-centered" style="font-size: 16px;">
         \( 
         \mathcal{L}_{distill}=\sum_{i=1}^{I}\alpha_i[\beta \mathcal{L}_{cos}(h_i(g(f(x), i)), t_i(x)) + (1-\beta) \mathcal{L}_{sL1}(h_i(g(f(x), i)), t_i(x))],
@@ -333,12 +337,16 @@
           \mathcal{L}_{pretrain}=\mathcal{L}_{distill}+\gamma\mathcal{L}_{mutual} 
         \)
       </h2>
+
       <div style="height: 30px;"></div> 
+
       <p>
         (2) Downstream Robot Tasks, where we freeze the experts and train a lightweight Robot Router (&lt; 0.4 parameters) that dynamically selects task-relevant visual features to guide the policy head in generating appropriate robotic actions. 
         We also incorporate a noisy gating mechanism that promotes exploration during training.
       </p>
+
       <div style="height: 30px;"></div> 
+
       <h2 class="subtitle has-text-centered" style="font-size: 16px;">
         \( 
           \begin{cases}
@@ -348,17 +356,16 @@
         \)
       </h2>
 
-      <div style="height: 50px;"></div> 
-
+      <div style="height: 30px;"></div> 
 
       <!-- Boxed Text -->
       <div class="left-text-block">
         <p><strong>Takeaways:</strong></p>
         <!-- <p>This issue arises because:</p> -->
         <ul class="custom-list">
-          <li>We observed persistent value overestimation that leads to poor performance for complex tasks.</li>
-          <li>Fundamental limitation: value approximation error caused by non-converging policy mismatch.</li>
-          <li>A simple yet effective policy regularization term could mitigate this by reducing out-of-distribution queries</li>
+          <li>We propose <b>VER</b>, which distills knowledge from diverse VFMs into a vision expert library and enables robots to autonomously select task-relevant experts to generate structured visual representations.</li>
+          <li>We analyze the routing process for downstream robotic tasks and observe that Robot Router is trained to generate lower-entropy, more structured representations, resulting in improved performance in downstream robotic tasks.</li>
+          <li>We Facilitates the seamless integration of new trainable experts, enabling the acquisition of robot-related knowledge beyond the existing dataset and continuously distilling new vision foundation models.</li>
         </ul>
       </div>
     </div>
@@ -374,45 +381,62 @@
       <h2 class="title is-3 has-text-centered">Pretraining</h2>
 
       <figure class="has-text-centered">
+        <img src="static/images/entropy_feat_decrease_with_curve.png" alt="Description of image" style="max-width: 70%; height: auto;">
+      </figure>
+      <h2 class="subtitle has-text-centered" style="font-size: 16px;">
+        <b>Feature entropy during policy training.</b> The feature entropy decreases quickly at first 3 epochs, indicating increasingly structured representations.
+      </h2>
+
+      <div style="height: 30px;"></div> 
+
+      <figure class="has-text-centered">
         <img src="static/images/entropy_mode_with_curve_00.png" alt="Description of image" style="max-width: 80%; height: auto;">
       </figure>
       <h2 class="subtitle has-text-centered" style="font-size: 16px;">
-        We also present the average performance on all algorithms.
+        <b>Relationship between feature entropy and performance on the pen-v0 task.</b> 
+        Left: Success rates (solid lines) and feature entropy (dashed lines) during training. 
+        Right: Attention patterns across three entropy modes (decreasing from top to bottom). Lower entropy modes (blue) achieve higher success rates by extracting task-relevant features, while higher entropy modes (orange) show diffused attention and lower performance.
       </h2>
+
+      <figure class="has-text-centered">
+        <img src="static/images/distillation_loss.png" alt="Description of image" style="max-width: 80%; height: auto;">
+      </figure>
+      <h2 class="subtitle has-text-centered" style="font-size: 16px;">
+        <b>Pretraing performation for distillation.</b> Left: Cosine distance comparisons on DINOv2; Right: Distillation performance comparison.
+      </h2>
+
+
 
     </div>
   </div>
 </section>
 
 
-
-<!-- algorithm -->
-<!-- <section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Task Transfer</h2>
-        <div class="content has-text-justified">
-          <p>
-            We evaluate the reusability of the SDP, emphasizing its capability to leverage previously acquired experts and facilitate the learning of new skills by composing experts. Specifically, we pretrain the experts in <i>Coffee</i> and <i>Mug Cleanup</i>, freeze them, and only train the lightweight router in <i>Coffee Preparation</i>. With SDP, we find that experts learned from <i>Coffee</i> and <i>Mug Cleanup</i> can be <b>reused</b> in <i>Coffee Preparation</i>. It is particularly interesting to observe that whenever knowledge related to <i>Coffee</i> is required, but not seen in <i>Mug Cleanup</i>, the experts learned in <i>Coffee</i> are activated. Moreover, through compositing these experts, SDP can learn <b>new skills</b> such as moving mug to the coffee machine's drip tray. We slow down the video during these pivotal moments.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
- 
-
 <!-- Experiments -->
 <section class="hero image-section">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="title is-3 has-text-centered">Experiments</h2>
-
-      <img src="static/images/table.png" alt="Description of image" style="width: 100%; height: auto;">
+      
+      <figure class="has-text-centered">
+        <img src="static/images/table.png" alt="Description of image" style="width: 100%; height: auto;">
+      </figure>
       <h2 class="subtitle has-text-centered" style="font-size: 16px;">
-      Performance on DMControl. We report mean performance and 95% CIs of 3 random seeds across 7 high-dimensional continuous control tasks. We also present the average performance on all algorithms.
+        Our approach outperforms previous state-of-the-art methods across 11 diverse tasks from Franka Kitchen, Meta-World, and Adroit environments, achieving the highest average success rate (74.7%).
       </h2>
+
+      <div style="height: 30px;"></div> 
+
+      <figure class="has-text-centered">
+        <img src="static/images/entropy_mode_relocate.png" alt="Description of image" style="width: 70%; height: auto;">
+      </figure>
+      <h2 class="subtitle has-text-centered" style="font-size: 16px;">
+        Visualization of attention patterns for different entropy modes in the relocate task. The lowest entropy mode shows more focused attention on task-relevant regions and corresponds to the highest task performance.
+      </h2>
+
+
+
+        
 
     </div>
   </div>
