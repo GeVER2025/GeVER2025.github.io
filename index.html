@@ -198,15 +198,15 @@
                 </span>
 
                 <!-- checkpoints link -->
-                <!-- <span class="link-block">
-                  <a href="https://drive.google.com/file/d/1So-byi2hNXIrPLsMT1KLaSbJTpRM1pil/view" target="_blank"
+                <span class="link-block">
+                  <a href="" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Checkpoints</span>
+                    <span>Checkpoints (Coming Soon)</span>
                   </a >
-                </span> -->
+                </span>
                 
                 <!-- TODO: add arxiv -->
                 <!-- ArXiv abstract Link -->
@@ -320,7 +320,7 @@
         (1) Pretraining, where a Base Vision Transformer processes input images, and Teacher-Specific Routers in the Vision Expert Library select appropriate experts to mimic representations from foundation models; 
       </p>
 
-      <div style="height: 30px;"></div> 
+      <!-- <div style="height: 30px;"></div> 
 
       <h2 class="subtitle has-text-centered" style="font-size: 16px;">
         \( 
@@ -336,7 +336,7 @@
         \( 
           \mathcal{L}_{pretrain}=\mathcal{L}_{distill}+\gamma\mathcal{L}_{mutual} 
         \)
-      </h2>
+      </h2> -->
 
       <div style="height: 30px;"></div> 
 
@@ -345,22 +345,22 @@
         We also incorporate a noisy gating mechanism that promotes exploration during training.
       </p>
 
-      <div style="height: 30px;"></div> 
+      <!-- <div style="height: 30px;"></div>  -->
 
-      <h2 class="subtitle has-text-centered" style="font-size: 16px;">
+      <!-- <h2 class="subtitle has-text-centered" style="font-size: 16px;">
         \( 
           \begin{cases}
               \mathcal{R}^n_i(x,l)=\operatorname{Top-K}(\operatorname{Softmax} (x\cdot W^n+\epsilon), l),\\
               \epsilon \sim \mathcal{N}(0,\operatorname{SoftPlus}(x\cdot W_{noise}^n)),
           \end{cases}
         \)
-      </h2>
+      </h2> -->
 
       <div style="height: 30px;"></div> 
 
       <!-- Boxed Text -->
       <div class="left-text-block">
-        <p><strong>Takeaways:</strong></p>
+        <p><strong>Contributions:</strong></p>
         <!-- <p>This issue arises because:</p> -->
         <ul class="custom-list">
           <li>We propose <b>VER</b>, which distills knowledge from diverse VFMs into a vision expert library and enables robots to autonomously select task-relevant experts to generate structured visual representations.</li>
@@ -399,7 +399,7 @@
       </h2>
 
       <figure class="has-text-centered">
-        <img src="static/images/distillation_loss.png" alt="Description of image" style="max-width: 80%; height: auto;">
+        <img src="static/images/distillation_loss.png" alt="Description of image" style="max-width: 70%; height: auto;">
       </figure>
       <h2 class="subtitle has-text-centered" style="font-size: 16px;">
         <b>Pretraing performation for distillation.</b> Left: Cosine distance comparisons on DINOv2; Right: Distillation performance comparison.
