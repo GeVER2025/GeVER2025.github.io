@@ -259,17 +259,6 @@
 </section>
 </head>
 
-<!-- <body>
-<div class="video-container">
-  <div class="video-box">
-    <video class = "fixed_video_wider" poster="" id="tree" autoplay controls muted loop >
-      <source src="static/videos/hopper-stand_ours.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="caption">Hopper-stand</div>
-  </div>
-</div>
-</body> -->
 </html>
 
 
@@ -405,6 +394,13 @@
         <b>Pretraing performation for distillation.</b> Left: Cosine distance comparisons on DINOv2; Right: Distillation performance comparison.
       </h2>
 
+      <figure class="has-text-centered">
+        <img src="static/images/exp_freq_base_compact.png" alt="Description of image" style="max-width: 60%; height: auto;">
+      </figure>
+      <h2 class="subtitle has-text-centered" style="font-size: 16px;">
+        <b>Expert utilization frequency across three MoE layers.</b> The heatmap shows how each teacher model (ViT, DINOv2, CLIP) activates different experts (1-6) during distillation on ImageNet-1K.
+      </h2>
+
 
 
     </div>
@@ -434,204 +430,30 @@
         Visualization of attention patterns for different entropy modes in the relocate task. The lowest entropy mode shows more focused attention on task-relevant regions and corresponds to the highest task performance.
       </h2>
 
-
-
-        
+      <div class="columns">
+        <div class="column is-half">
+          <figure class="has-text-centered">
+            <img src="static/images/vel.png" alt="Description of image" style="width: 90%; height: auto;">
+            <figcaption>Ablation on VEL</figcaption>
+          </figure>
+        </div>
+        <div class="column is-half">
+          <figure class="has-text-centered">
+            <img src="static/images/dfm_tfs.png" alt="Description of second image" style="width: 90%; height: auto;">
+            <figcaption>Ablation on DFM and TFS</figcaption>
+          </figure>
+        </div>
+      </div>
+      <h2 class="subtitle has-text-centered" style="font-size: 16px;">
+        <b>Ablation study.</b> 
+        Left: Ablation study on robot task performance comparing representations before and after VEL, with and without reconstruction loss during pretraining; 
+        Right: Ablation study on the mixture of Distilled Foundation Model (DFM) experts and Trained-From-Scratch (TFS) experts. We report the average success rate without / with noisy gating (NG) if Robot Router exists.
+      </h2>
 
     </div>
   </div>
 </section>
-<!-- <section class="hero image-section">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div class="video-container">
-        <div class="video-box">
-          <video class = "fixed_video_wider" poster="" id="tree" autoplay controls muted loop >
-            <source src="static/videos/run_ours.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="caption">Ours</div>
-        </div>
-        <div class="video-box">
-          <video class = "fixed_video_wider" poster="" id="tree" autoplay controls muted loop >
-            <source src="static/videos/run_tdmpc2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="caption">TD-MPC2</div>
-        </div>
-      </div>
-      <h2 class="subtitle has-text-centered" style="font-size: 20px;">
-        h1hand-run-v0
-      </h2>
 
-      <div class="video-container">
-        <div class="video-box">
-          <video class = "fixed_video_wider" poster="" id="tree" autoplay controls muted loop >
-            <source src="static/videos/slide_ours.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="caption">Ours</div>
-        </div>
-        <div class="video-box">
-          <video class = "fixed_video_wider" poster="" id="tree" autoplay controls muted loop >
-            <source src="static/videos/slide_tdmpc2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="caption">TD-MPC2</div>
-        </div>
-      </div>
-      <h2 class="subtitle has-text-centered" style="font-size: 20px;">
-        h1hand-slide-v0
-      </h2>
-
-    </div>
-  </div>
-</section> -->
-
-
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <source src="static/videos/multitask-realrobot.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered" style="font-size: 16px;">
-        <b>Multitask - FANUC Robotic Arm</b>.
-      </h2>
-    </div>
-  </div>
-</section> -->
-
-
-<!-- Image carousel -->
-<!-- <section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        Your image here -->
-        <!-- <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        Your image here -->
-        <!-- <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item"> -->
-        <!-- Your image here -->
-        <!-- <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item"> -->
-      <!-- Your image here -->
-      <!-- <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section> -->
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-       Paper video. -->
-      <!-- <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            Youtube embed code here -->
-            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>  -->
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<!-- <section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            Your video file here -->
-            <!-- <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            Your video file here -->
-            <!-- <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            Your video file here -->
-            <!-- <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- End video carousel -->
-
-
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section> -->
-<!--End paper poster -->
-
-
-<!-- BibTex citation -->
-<!-- <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>
-      @article{lin2025td,
-        title={TD-M (PC) $\^{} 2$: Improving Temporal Difference MPC Through Policy Constraint},
-        author={Lin, Haotian and Wang, Pengcheng and Schneider, Jeff and Shi, Guanya},
-        journal={arXiv preprint arXiv:2502.03550},
-        year={2025}
-      }
-    </code></pre>
-  </div>
-</section> -->
-<!-- End BibTex citation -->
 
 
 <footer class="footer">
