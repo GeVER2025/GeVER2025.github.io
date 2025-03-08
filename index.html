@@ -249,7 +249,7 @@
     <div class="hero-body">
       <img src="static/images/teaser.png" alt="Description of image" style="width: 100%; height: auto;">
       <h2 class="subtitle has-text-centered" style="font-size: 16px;">
-        We present General <u>V</u>ision <u>E</u>xpert Transformer for <u>R</u>obot Learning (VER), a novel framework that distills knowledge from multiple vision foundation
+        We present <u>V</u>ision <u>E</u>xpert Transformer for <u>R</u>obot Learning (VER), a novel framework that distills knowledge from multiple vision foundation
         models (<a href="https://github.com/facebookresearch/dinov2" target="_blank"><code>DINOv2</code></a>, 
         <a href="https://github.com/google-research/vision_transformer" target="_blank"><code>ViT</code></a>, 
         <a href="https://github.com/openai/CLIP" target="_blank"><code>CLIP</code></a>) into a unified expert.
@@ -272,12 +272,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            While pretrained vision foundation models (VFMs) substantially advance robotic systems by providing rich, generalized representations, each foundation model remains narrowly specialized, making any single VFM inadequate for the broad range of robotic tasks. 
-            Existing methods that distill multiple VFMs into a unified representation pose additional challenges, including lack of flexibility in selecting task-specific representations and the necessity for full retraining when integrating new VFMs or robot-specific domain knowledge. 
-            To address these challenges, we propose VER, a <b>V</b>ision <b>E</b>xpert transformer for <b>R</b>obot learning. 
-            VER distills knowledge from multiple Vision Foundation Models (VFMs) into a specialized expert library, and enable learning dynamic routing to selectively utilize the most task-relevant vision experts for downstream robot tasks. 
-            We further investigate the routing mechanism and observe that the router progressively learns to extract lower-entropy, structured task-relevant features, acting as an implicit planning module that alleviates the policy head\'s burden. 
-            Moreover, VER facilitates the seamless integration of new trainable experts, enabling the acquisition of robot-related domain knowledge beyond the existing dataset and continuously distilling new vision foundation models. 
+            While pretrained vision foundation models (VFMs) substantially advance robotic systems by providing rich visual representations, each individual VFM typically excels only within specific visual domains or functionalities, limiting their standalone effectiveness across diverse robotic tasks.
+            Existing methods that distill multiple VFMs into a unified representation pose additional challenges, including the lack of flexibility in selecting task-specific representations and the necessity for full retraining when incorporating new VFMs or robot-specific domain knowledge.
+            To address these challenges, we propose <b>VER</b>, a <b>V</b>ision <b>E</b>xpert transformer for <b>R</b>obot learning. 
+            VER distills knowledge from multiple VFMs into a specialized expert library, and learns dynamic routing to selectively utilize task-relevant vision experts for downstream robot tasks. 
+            We further investigate the routing mechanism and observe that the router progressively learns to extract lower-entropy, structured task-relevant features, acting as an implicit planning module that alleviates the policy head\’s burden.
+            Moreover, VER facilitates the seamless integration of new trainable experts, enabling the acquisition of robot-related domain knowledge beyond the pretraining dataset and continuously distilling new vision foundation models.
+            Moreover, VER facilitates the seamless integration of new trainable experts, allowing continuous adaptation to robot-specific domain knowledge and emerging VFMs beyond pretrained ones.
             Extensive experiments on 11 diverse robotic benchmarks demonstrate that VER achieves state-of-the-art performance with a 74.7% average success rate.
           </p>
         </div>
